@@ -29,7 +29,7 @@ class AdminAdd extends \AbstractCommand
                         ':new_user_id' => $contact->getUserId(),
                     ]);
                     $username = ($message->getFrom()->getUsername()) ? ("@".$message->getFrom()->getUsername()) : trim(join(' ', [$message->getFrom()->getFirstName(),$message->getFrom()->getLastName()]));
-                    $this->api->sendMessage($contact->getUserId(), "Пользователь $username добавил вас как администратора для этого бота");
+                    $this->api->sendMessage($contact->getUserId(), "Пользователь $username добавил вас как администратора для этого бота.\nДля начала работы отправьте команду /start");
                     $this->api->sendMessage($message->getChat()->getId(), "Админ добавлен. Ему выслано уведомление");
                     \Storage::getInstance()->remove('command'.$message->getFrom()->getId());
                 }else{
