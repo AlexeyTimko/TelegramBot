@@ -12,7 +12,7 @@ class DB extends \PDO
     private static $_instance = null;
     public function __construct($file = 'config.ini')
     {
-        $file = '../'.$file;
+        $file = PROJECT_PATH . '/'.$file;
         if (!$settings = parse_ini_file($file, TRUE)) throw new \Exception('Unable to open ' . $file . '.');
 
         $dns = $settings['database']['driver'] .

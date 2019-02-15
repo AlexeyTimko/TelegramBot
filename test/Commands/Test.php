@@ -13,7 +13,7 @@ use TelegramBot\Api\Types\Message;
 class Test extends \AbstractCommand
 {
     public static $description = 'Test command';
-    public function execute(Message $message){
+    public function execute($message){
         \Storage::getInstance()->set('command'.$message->getFrom()->getId(), json_encode([
             'command' => 'test',
             'step' => $this->step + 1,

@@ -8,12 +8,10 @@
 
 namespace Commands;
 
-use TelegramBot\Api\Types\Message;
-
 class Help extends \AbstractCommand
 {
     public static $description = 'Shows command list';
-    public function execute(Message $message){
+    public function execute($message){
         $pattern = '{' . __DIR__ . '/*.php';
         if(!empty($this->commandsPath)){
             $pattern .= ",{$this->commandsPath}/*.php";

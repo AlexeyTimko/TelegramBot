@@ -7,6 +7,7 @@
  */
 
 use TelegramBot\Api\BotApi;
+use TelegramBot\Api\Types\CallbackQuery;
 use TelegramBot\Api\Types\Message;
 
 abstract class AbstractCommand
@@ -34,8 +35,8 @@ abstract class AbstractCommand
     }
 
     /**
-     * @param Message $message
+     * @param Message|CallbackQuery $message
      * @return mixed
      */
-    abstract public function execute(Message $message);
+    abstract public function execute($message);
 }
